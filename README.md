@@ -11,7 +11,8 @@ buttons.addEventListener("click", function(e){
 })    
 ```
 ```
-
+The first line selects all of the elements with a class name of 'button' and returns an HTML collection.
+The addEventListener will add create an error. An iteration or loop needs to occur add an event listener to each element. Otherwise, the event listener will only be attached to the first element.
 ```
 
 ### Use the following HTML to answer the rest of the questions.
@@ -31,21 +32,21 @@ buttons.addEventListener("click", function(e){
 ### 2. Provide the JavaScript code that would get the second list item from the DOM and save it to a variable called `secondListItem`.
 
 ```javascript
-
+secondListItem = document.querySelectorAll('ul.list')[1]
 ```
 
 ### 3. Once you have the `secondListItem` node, how could you traverse the DOM tree to get the `<p>` tag.
 
 
 ```javascript
-
+secondListItem.parentElement.nextSibling
 ```
 
 ### 4. What query could you do to get just the `li` tags that are inside the `ul` and not that random janky one that's near the bottom for some reason?
 
 
 ```javascript
-
+document.querySelectorAll('ul.list')
 ```
 
 ## Events
@@ -53,25 +54,25 @@ buttons.addEventListener("click", function(e){
 ### 5. Why do we use a `DOMContentLoaded` listener?
 
 ```
-
+To ensure that the load order doesn't load javascript code before the page content loads.
 ```
 
 ### 6. What type of element does a `submit` event happen to?
 
 ```
-
+A form element.
 ```
 
 ### 7. What attribute of an `input` element can we use to easily retrieve data from form inputs?
 
 ```
-
+Name attribute
 ```
 
 ### 8. What are the 2 required parameters we have to pass into a call to `addEventListener`?
 
 ```
-
+Event and callback function
 ```
 
 ## Fetch
@@ -79,6 +80,13 @@ buttons.addEventListener("click", function(e){
 ### 9. Write the code to do a GET `fetch` request to "notarealwebsite.com" and log the response from the server to the console.
 
 ```javascript
+fetch('notarealwebsite.com')
+.then(function(response) {
+  return response.json();
+})
+.then(function(json) {
+  console.log(json)
+});
 
 ```
 
@@ -97,7 +105,7 @@ fetch("notarealwebsite.com/dogs/25", {
 ```
 
 ```
-
+This deletes the dog with an id of 25 and returns a promise.
 ```
 
 ## Datasets
@@ -105,24 +113,26 @@ fetch("notarealwebsite.com/dogs/25", {
 ### 12. Write the HTML to create a `div` element with a dataset property of "awesome" set to a value of "Steven is".
 
 ```HTML
-
+<div data-awesome="Steven is">Steven</div>
 ```
 
 ### 13. In JavaScript, how would you get the `div` element from the question above from the DOM using `document.querySelector` and the dataset?
 
 ```javascript
-
+let div = document.querySelector('div[data-awesome="Steven id"]')
 ```
 
 ### 14. Write the JavaScript to create a `marquee` element with a dataset property of "jaws" set to a value of "great movie".
 
 ```javascript
-
+let marquee = document.createElement('marquee') marquee.dataset.jaws = "great movie"
 ```
 
 ### 15. In JavaScript, how would you access the "jaws" dataset property? How would you change its value to "overrated maybe"?
 
 ```javascript
+marquee.dataset.jaws
 
+marquee.dataset.jaws = "overrated maybe"
 ```
 
